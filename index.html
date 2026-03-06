@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHRONO — Precision Stopwatch</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class="logo">CHRONO</div>
+    <div class="status-pill" id="statusPill">
+      <div class="dot"></div>
+      <span id="statusText">READY</span>
+    </div>
+  </header>
+
+  <!-- Clock -->
+  <div class="clock-card" id="clockCard">
+    <div class="time-display">
+      <span class="time-main" id="timeMin">00</span>
+      <span class="time-sep">:</span>
+      <span class="time-main" id="timeSec">00</span>
+      <span class="time-ms" id="timeMs">.00</span>
+    </div>
+    <div class="lap-split" id="lapSplitRow" style="display:none">
+      <span class="lap-split-label">Current Lap</span>
+      <span class="lap-split-time" id="lapSplitTime">00:00.00</span>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="controls" id="controls">
+    <button class="btn btn-start" id="btnStart" onclick="startStop()">
+      <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+      START
+    </button>
+    <button class="btn btn-lap" id="btnLap" onclick="recordLap()" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12,6 12,12 16,14"/></svg>
+      LAP
+    </button>
+    <button class="btn btn-reset" id="btnReset" onclick="reset()" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+      RESET
+    </button>
+  </div>
+
+  <!-- Laps -->
+  <div class="laps-section">
+    <div class="laps-header">
+      <span class="laps-title">Lap Times</span>
+      <span class="laps-count" id="lapCount">0 LAPS</span>
+    </div>
+    <div class="laps-cols">
+      <span>#</span><span>Lap Time</span><span>Total</span><span>Mark</span>
+    </div>
+    <div class="laps-list" id="lapsList">
+      <div class="no-laps" id="noLaps">No laps recorded yet</div>
+    </div>
+  </div>
+
+  <div class="kb-hints">
+    <div class="kb-hint"><span class="key">SPACE</span> Start / Pause</div>
+    <div class="kb-hint"><span class="key">L</span> Lap</div>
+    <div class="kb-hint"><span class="key">R</span> Reset</div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
